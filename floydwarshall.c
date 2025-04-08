@@ -13,14 +13,11 @@ void floydWarshall(int n, int dist[][100]) {
 int main() {
     int n, m;
     scanf("%d %d", &n, &m); // n = nodes, m = edges
-
     int dist[100][100];
-
     // Initialize distance matrix
     for (int i = 0; i < n; i++)
         for (int j = 0; j < n; j++)
             dist[i][j] = (i == j) ? 0 : INF;
-
     // Read edges and update distances
     for (int i = 0; i < m; i++) {
         int u, v, w;
@@ -30,16 +27,13 @@ int main() {
             dist[v][u] = w; // If undirected graph
         }
     }
-
     // Run Floyd-Warshall algorithm
     floydWarshall(n, dist);
-
     // Print final shortest paths
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++)
             printf("%d ", dist[i][j]);
         printf("\n");
     }
-
     return 0;
 }
