@@ -1,3 +1,5 @@
+//gift wrapping algorithm
+
 #include <stdio.h>
 
 typedef struct {

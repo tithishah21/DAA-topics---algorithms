@@ -1,8 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-int max(int x,int y){
-    return x>y?x:y;
-}
+
 int lcsRec(char s1[],char s2[],int m,int n){
     if(m==0 || n==0){
         return 0;
@@ -11,7 +9,7 @@ int lcsRec(char s1[],char s2[],int m,int n){
         return 1+lcsRec(s1,s2,m-1,n-1);
     }
     else{
-        return max(lcsRec(s1,s2,m,n-1),lcsRec(s1,s2,m-1,n));
+        return (lcsRec(s1,s2,m-1,n) > lcsRec(s1,s2,m,n-1)) ? lcsRec(s1,s2,m-1,n) : lcsRec(s1,s2,m,n-1);
     }
 }
 int lcs(char s1[],char s2[]){
